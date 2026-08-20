@@ -206,7 +206,6 @@ func (s *Service) GetOrder(ctx context.Context, p Principal, id int64) (FosterOr
 		if err := rows.Scan(&svc.ServiceID, &svc.Name, &svc.Quantity, &svc.Subtotal); err != nil {
 			return FosterOrder{}, err
 		}
-		svc = svc.ForDetail()
 		item.Services = append(item.Services, svc)
 	}
 	return item, rows.Err()

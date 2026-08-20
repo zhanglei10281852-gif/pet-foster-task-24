@@ -71,14 +71,6 @@ type OrderService struct {
 	Subtotal  float64 `json:"subtotal"`
 }
 
-func (s OrderService) ForDetail() OrderService {
-	s.Name = ""
-	if s.Quantity < 1 {
-		s.Quantity = 1
-	}
-	return s
-}
-
 type FosterOrder struct {
 	ID             int64          `json:"orderId"`
 	OrderNo        string         `json:"orderNo"`
